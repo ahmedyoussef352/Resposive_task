@@ -16,6 +16,7 @@ class HotelHome extends StatefulWidget {
 class _HotelHomeState extends State<HotelHome> {
   @override
   Widget build(BuildContext context) {
+    int y = MediaQuery.of(context).size.width.toInt();
     int currentPage = 0;
     final pageController = PageController();
     Widget list() => ListView(
@@ -29,7 +30,15 @@ class _HotelHomeState extends State<HotelHome> {
             HotelItem(
                 hotelImage: 'assets/160.jpg',
                 hotelLoc: "Machono",
-                hotelName: 'Moradia Car de')
+                hotelName: 'Moradia Car de'),
+            HotelItem(
+                hotelImage: 'assets/161.jpg',
+                hotelLoc: "Calheta",
+                hotelName: 'Hotel jardim Atlantico'),
+            HotelItem(
+                hotelImage: 'assets/161.jpg',
+                hotelLoc: "Calheta",
+                hotelName: 'Hotel jardim Atlantico'),
           ],
         );
     return Scaffold(
@@ -37,230 +46,253 @@ class _HotelHomeState extends State<HotelHome> {
       body: PageView(
         controller: pageController,
         children: [
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height * .3,
-                  decoration: const BoxDecoration(
-                      image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: AssetImage(
-                              'assets/luxury-modern-style-bedroom-interior-hotel-bedroom-generative-ai-illustration.jpg'))),
-                  child: Container(
+          SingleChildScrollView(
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              height: 800,
+              // y < 560 ? 800 : 800,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
                     width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height,
-                    color: Colors.black38,
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: MediaQuery.of(context).size.width * .08,
-                          vertical: MediaQuery.of(context).size.height * .055),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Icon(
-                                Icons.view_comfy_alt_outlined,
-                                size: MediaQuery.of(context).size.height * .038,
-                                color: Colors.white,
-                              ),
-                              Icon(
-                                Icons.notifications_none,
-                                size: MediaQuery.of(context).size.height * .038,
-                                color: Colors.white,
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: MediaQuery.of(context).size.height * .05,
-                          ),
-                          Expanded(
-                            flex: 0,
-                            child: Text(
-                              'Hi Anna,',
-                              style: TextStyle(
-                                color: Colors.white,
-                                wordSpacing:
-                                    MediaQuery.of(context).size.width * .005,
-                                fontSize:
-                                    MediaQuery.of(context).size.height * .04,
-                              ),
-                            ),
-                          ),
-                          Expanded(
-                            flex: 0,
-                            child: Text(
-                              'find your favourite',
-                              style: TextStyle(
-                                color: Colors.grey,
-                                wordSpacing:
-                                    MediaQuery.of(context).size.width * .005,
-                                fontSize:
-                                    MediaQuery.of(context).size.height * .02,
-                              ),
-                            ),
-                          ),
-                          Expanded(
-                            flex: 0,
-                            child: Text(
-                              'Hotel',
-                              style: TextStyle(
-                                color: const Color.fromARGB(255, 36, 250, 129),
-                                wordSpacing:
-                                    MediaQuery.of(context).size.width * .005,
-                                fontSize:
-                                    MediaQuery.of(context).size.height * .02,
-                              ),
-                            ),
-                          ),
-                          const Spacer()
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: MediaQuery.of(context).size.width * .08,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width,
+                    height: 250,
+                    decoration: const BoxDecoration(
+                        image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: AssetImage(
+                                'assets/luxury-modern-style-bedroom-interior-hotel-bedroom-generative-ai-illustration.jpg'))),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height,
+                      color: Colors.black38,
+                      child: Padding(
                         padding: EdgeInsets.symmetric(
-                          horizontal: MediaQuery.of(context).size.width * .05,
-                          vertical: MediaQuery.of(context).size.height * .012,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Colors.grey.withOpacity(.2),
-                          borderRadius: BorderRadius.circular(
-                            MediaQuery.of(context).size.width * .04,
-                          ),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.search_outlined,
-                                  color: Colors.grey.shade200,
-                                  size:
-                                      MediaQuery.of(context).size.height * .03,
-                                ),
-                                SizedBox(
-                                  width:
-                                      MediaQuery.of(context).size.width * .02,
-                                ),
-                                Text(
-                                  "Search here ...",
-                                  style: TextStyle(
-                                      color: Colors.grey.withOpacity(.7),
-                                      fontSize:
-                                          MediaQuery.of(context).size.height *
-                                              .022,
-                                      fontWeight: FontWeight.w400),
-                                ),
-                              ],
-                            ),
-                            Icon(
-                              Icons.format_list_bulleted,
-                              color: Colors.grey.withOpacity(.7),
-                            )
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * .01,
-                      ),
-                      Container(
-                        height: MediaQuery.of(context).size.height * .5,
-                        child: DefaultTabController(
-                          length: 3,
+                            horizontal: MediaQuery.of(context).size.width * .08,
+                            vertical: MediaQuery.of(context).size.height * .04),
+                        child: Expanded(
                           child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              ButtonsTabBar(
-                                unselectedLabelStyle: TextStyle(
-                                  color: Colors.white,
-                                  fontSize:
-                                      MediaQuery.of(context).size.width * .045,
-                                ),
-                                labelStyle:
-                                    const TextStyle(color: Colors.black),
-                                borderColor: Colors.green.shade300,
-                                unselectedBackgroundColor: Colors.black,
-                                unselectedBorderColor: Colors.green.shade300,
-                                backgroundColor: Colors.green.shade300,
-                                height:
-                                    MediaQuery.of(context).size.height * .06,
-                                splashColor: Colors.green.shade300,
-                                duration: 50,
-                                borderWidth:
-                                    MediaQuery.of(context).size.width * .005,
-                                radius: MediaQuery.of(context).size.width * .05,
-                                contentPadding: EdgeInsets.symmetric(
-                                  horizontal:
-                                      MediaQuery.of(context).size.width * .05,
-                                  vertical:
-                                      MediaQuery.of(context).size.height * .003,
-                                ),
-                                physics: const BouncingScrollPhysics(),
-                                tabs: [
-                                  Tab(
-                                    child: Row(
-                                      children: [
-                                        const Text(
-                                          'Best offers ',
-                                          style: TextStyle(color: Colors.black),
-                                        ),
-                                        Container(
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              .06,
-                                          height: MediaQuery.of(context)
-                                                  .size
-                                                  .height *
-                                              .05,
-                                          child: Image.asset('assets/fire.png'),
-                                        )
-                                      ],
-                                    ),
-                                    //
+                              const Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Icon(
+                                    Icons.view_comfy_alt_outlined,
+                                    size: 30,
+                                    color: Colors.white,
                                   ),
-                                  const Tab(
-                                    text: 'Top rates',
-                                  ),
-                                  const Tab(
-                                    text: 'Pupular',
+                                  Icon(
+                                    Icons.notifications_none,
+                                    size: 30,
+                                    color: Colors.white,
                                   ),
                                 ],
                               ),
-                              SizedBox(
-                                height:
-                                    MediaQuery.of(context).size.height * .05,
-                              ),
+                              const Spacer(),
                               Expanded(
-                                child: TabBarView(
-                                  children: [list(), list(), list()],
+                                flex: 0,
+                                child: Text(
+                                  'Hi Anna,',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    wordSpacing:
+                                        MediaQuery.of(context).size.width *
+                                            .005,
+                                    fontSize:
+                                        MediaQuery.of(context).size.height *
+                                            .04,
+                                  ),
                                 ),
                               ),
+                              Expanded(
+                                flex: 0,
+                                child: Text(
+                                  'find your favourite',
+                                  style: TextStyle(
+                                    color: Colors.grey,
+                                    wordSpacing:
+                                        MediaQuery.of(context).size.width *
+                                            .005,
+                                    fontSize:
+                                        MediaQuery.of(context).size.height *
+                                            .02,
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 0,
+                                child: Text(
+                                  'Hotel',
+                                  style: TextStyle(
+                                    color:
+                                        const Color.fromARGB(255, 36, 250, 129),
+                                    wordSpacing:
+                                        MediaQuery.of(context).size.width *
+                                            .005,
+                                    fontSize:
+                                        MediaQuery.of(context).size.height *
+                                            .02,
+                                  ),
+                                ),
+                              ),
+                              const Spacer()
                             ],
                           ),
                         ),
                       ),
-                    ],
+                    ),
                   ),
-                ),
-                const Spacer(),
-              ],
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: 50,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: MediaQuery.of(context).size.width * .05,
+                            vertical: MediaQuery.of(context).size.height * .012,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.grey.withOpacity(.2),
+                            borderRadius: BorderRadius.circular(
+                              MediaQuery.of(context).size.width * .04,
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.search_outlined,
+                                    color: Colors.grey.shade200,
+                                    size: MediaQuery.of(context).size.height *
+                                        .03,
+                                  ),
+                                  SizedBox(
+                                    width:
+                                        MediaQuery.of(context).size.width * .02,
+                                  ),
+                                  Text(
+                                    "Search here ...",
+                                    style: TextStyle(
+                                        color: Colors.grey.withOpacity(.7),
+                                        fontSize:
+                                            MediaQuery.of(context).size.height *
+                                                .022,
+                                        fontWeight: FontWeight.w400),
+                                  ),
+                                ],
+                              ),
+                              Icon(
+                                Icons.format_list_bulleted,
+                                color: Colors.grey.withOpacity(.7),
+                              )
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: y < 560 ? 40 : 60,
+                        ),
+                        Expanded(
+                          flex: 0,
+                          child: Container(
+                            //color: Colors.red,
+                            height: y < 560 ? 390 : 420,
+                            child: DefaultTabController(
+                              length: 5,
+                              child: Column(
+                                children: [
+                                  ButtonsTabBar(
+                                    unselectedLabelStyle: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: y < 560 ? 20 : 15,
+                                    ),
+                                    labelStyle:
+                                        const TextStyle(color: Colors.black),
+                                    borderColor: Colors.green.shade300,
+                                    unselectedBackgroundColor: Colors.black,
+                                    unselectedBorderColor:
+                                        Colors.green.shade300,
+                                    backgroundColor: Colors.green.shade300,
+                                    height: y < 560 ? 50 : 70,
+                                    splashColor: Colors.green.shade300,
+                                    duration: 50,
+                                    borderWidth: 1.5,
+                                    radius: y < 560 ? 50 : 70,
+                                    contentPadding: EdgeInsets.symmetric(
+                                      horizontal: 15,
+                                      vertical:
+                                          MediaQuery.of(context).size.height *
+                                              .003,
+                                    ),
+                                    physics: const BouncingScrollPhysics(),
+                                    tabs: [
+                                      Tab(
+                                        child: Row(
+                                          children: [
+                                            const Text(
+                                              'Best offers ',
+                                              style: TextStyle(
+                                                  color: Colors.black),
+                                            ),
+                                            Container(
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  .06,
+                                              height: y < 560 ? 20 : 50,
+                                              child: Image.asset(
+                                                  'assets/fire.png'),
+                                            )
+                                          ],
+                                        ),
+                                        //
+                                      ),
+                                      const Tab(
+                                        text: 'Top rates',
+                                      ),
+                                      const Tab(
+                                        text: 'Pupular',
+                                      ),
+                                      const Tab(
+                                        text: 'Top rates',
+                                      ),
+                                      const Tab(
+                                        text: 'Top rates',
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(
+                                    height: 30,
+                                  ),
+                                  Expanded(
+                                    child: TabBarView(
+                                      children: [
+                                        list(),
+                                        list(),
+                                        list(),
+                                        list(),
+                                        list(),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],
